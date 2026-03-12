@@ -1,6 +1,6 @@
 #suck horse cum
 
-# git add
+# git add filyname.py - stage the file for commit, add the file to the staging area, ready to be committed
 # git commit -m "Initial commit"
 # git push
 
