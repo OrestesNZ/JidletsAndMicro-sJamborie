@@ -7,7 +7,7 @@
 # branching - create wokring on a safe copy 
 # parellel 
 # git checkout -b feature-test 
-
+    
 # check which branch you are on 
 # git branch
 
@@ -24,11 +24,7 @@
 
 # merge conflicts - when two people edit the same line of code, git doesn't know which one to keep, need to resolve the conflict manually
 
-print("horse cum contains macro and micro nutrients")
+jiddles_list = ['Apple', 'Icelandishpussy', 'Donkeycockery','Zepple', 'bigbinancedick', 'rockerfeller','icelandishpussy', 'gregoryghastly','ampleschism', 'donkeycockery', 'ehrmantraut']
 
-if 2 * 2 != 5:
-    print("horse cum is not 5")
-else:
-    print("horse cum is 5")
-
-print("aids")
+for word in jiddles_list:
+    print(word[0])
