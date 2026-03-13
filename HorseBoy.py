@@ -7,7 +7,7 @@
 # branching - create wokring on a safe copy 
 # parellel 
 # git checkout -b feature-test 
-    
+
 # check which branch you are on 
 # git branch
 
@@ -24,7 +24,36 @@
 
 # merge conflicts - when two people edit the same line of code, git doesn't know which one to keep, need to resolve the conflict manually
 
-jiddles_list = ['Apple', 'Icelandishpussy', 'Donkeycockery','Zepple', 'bigbinancedick', 'rockerfeller','icelandishpussy', 'gregoryghastly','ampleschism', 'donkeycockery', 'ehrmantraut']
+# Fetch updates without merging them into your code
+#git fetch origin
 
-for word in jiddles_list:
-    print(word[0])
+# See the difference between your local code and the remote code
+#git diff main origin/main
+
+inventory = {
+    "food": {"apples": 50, "bread": 2, "milk": 1},
+    "alcohol": {"wine": 12, "beer": 5, "whiskey": 2}
+}
+
+def find_stock(item_name, inventory_data):
+    for category, items in inventory_data.items():
+        if item_name in items:
+            # 'items' is the sub-dictionary (e.g., {"apples": 50, "bread": 2, ...})
+            # So just use items[item_name]
+            quantity = items[item_name]
+            print(f"Found {item_name} in {category}. Quantity: {quantity}")
+
+            if quantity < 10:
+                order_function(item_name, quantity, inventory_data, category)
+                
+            return quantity
+    print(f"{item_name} not found in inventory.")
+
+def order_function(item, current_qty, inventory_data, category):
+    print(f"--ALERT: {item} is low ({current_qty}). Placing Order for 20 more!")
+    # update dictionary: category then item accessed
+    inventory_data[category][item] += 20
+
+    print(f"New stock for {item}: {inventory_data[category][item]}")
+
+stock_update = find_stock("bread", inventory)
