@@ -1,4 +1,15 @@
 # New file push, 
+#new files
+#git add DreamChartiot.py
+#git commit -m "Initial commit of DreamChariot.py"
+#git push origin main
+
+#update file
+# git add DreamChartiot.py 
+# git commit -m "Updated logic in DreamCharitot.py"
+# git push origin main
+
+
 """
 Prompt - Gemini
 Awesome lets more onto another practical python puzzle, 
