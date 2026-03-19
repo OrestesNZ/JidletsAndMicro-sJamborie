@@ -75,14 +75,16 @@ If a customer is at Site A and their dream car is at Site C, what are the two sp
 
 #the "Map": Distances between the site in miles 
 distances = {
-    'Site A': {'Site B': 10, 'Site C':20},
-    'Site B': {'Site A': 10, 'Site C': 15},
+    'Site A': {'Site B': 17, 'Site C':50},
+    'Site B': {'Site A': 55, 'Site C': 75},
     'Site C': {'Site A': 20, 'Site B': 15}
 }
 
+# %%
 # The "Weights": Costs per mile
-SALESMAN_COST_PER_MILE = 2.00
-CUSTOMER_COST_PER_MILE = 0.50
+SALESMAN_SERVICE_FEE = 5 # flat fee for the service of moving a car
+SALESMAN_COST_PER_MILE = 0.75
+CUSTOMER_COST_PER_MILE = 0.85
 
 # %%
 #print(distances['Site A'])
@@ -92,5 +94,31 @@ for site, connections in distances.items():
         print(f"{site}:")
         for destination, distance in connections.items():
             print(f" {destination}: {distance}")
+
+# Transportation Problem
+# weighted graph, edge weights
+# Scenario 
+# The Car: Located at Site C
+# The Customer: Locaed at Site A
+
+# %%
+#Option 1: Saelsman moves the car from Site C to Site A
+salesman_cost_ac = (distances['Site C']['Site A'] * SALESMAN_COST_PER_MILE) + SALESMAN_SERVICE_FEE 
+customer_cost_ac = distances['Site A']['Site C'] * CUSTOMER_COST_PER_MILE
+
+# %%
+def find_cheapest_mover(start, end):
+      # we need to get the distance from our dictionary
+      dist = distances[start][end]
+      salesman_cost = (dist * SALESMAN_COST_PER_MILE) + SALESMAN_SERVICE_FEE
+      customer_cost = dist * CUSTOMER_COST_PER_MILE
+      if salesman_cost < customer_cost:
+            print(f"Cheaper for the salesman to move the car from {start} to {end}. Cost: ${salesman_cost:.2f}")
+      elif customer_cost < salesman_cost:
+            print(f"Cheaper for the customer to drive from {start} to {end}. Cost: ${customer_cost:.2f}")
+
+# %%
+find_cheapest_mover('Site A', 'Site B')
+
 
 # %%
